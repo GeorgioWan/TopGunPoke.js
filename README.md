@@ -1,20 +1,21 @@
 # TopGun56 - 寶可56 Chrome 版通知 plugin :loudspeaker:
 
----
-
 泡地圖、等捷報？
-有這些工具還是不夠嗎？
-一強還有一強強，一屌還有一屌屌！
-就讓我們開 Chrome 坐等 **高素質** 寶可夢！
 
-... 終於可以專心做事了 XDD
+有這些工具還是不夠嗎？
+
+一強還有一強強，一屌還有一屌屌！
+
+一起點開 Chrome 坐等 **高素質** 寶可夢吧！ *... 終於可以專心做事了 XDD*
 
 ## Install
 
 1. 開 Chrome 安裝 [**cjs**](https://chrome.google.com/webstore/detail/custom-javascript-for-web/poakhlngfciodnhlhhgnaaelnpjljija)
 2. 打開 [寶可56](https://poke5566.com/)
 3. 點擊 chrome 右上角 **cjs** 圖示，將 **enable cjs for this host** 打勾
-4. 貼上 **TopGun56.js** 的程式碼，點擊 Save 後會刷新頁面 (刷新頁面後即可看到左下角新增的 plugin)
+4. 貼上 [**TopGun56.js**](https://github.com/GeorgioWan/TopGun56.js/blob/master/TopGun56.min.js) 的程式碼，點擊 Save 後會刷新頁面 (刷新頁面後即可看到左下角新增的 plugin，如下圖)
+
+![TopGun56.js](http://i.imgur.com/RiNnQCW.png)
 
 ## How to use
 
@@ -26,11 +27,15 @@
 
 ### 篩選範圍
 
-同寶可56，**畫面顯示範圍** 即為 **篩選範圍**
+　同寶可56，**畫面顯示範圍** 即為 **篩選範圍**
+ 
+### 目前稀有怪篩選
+
+　目前版本只針對 **Snorlax (卡比獸)**、**Dragonite (快龍)** 和 **Lapras (拉普拉斯、乘龍)** 有額外通知。
 
 ### 關於通知內容
 
-目前會通知以下內容：
+　目前會通知以下內容：
 * 畫面中 **共幾隻符合條件** 之寶可夢
 * **寶可夢名稱**(中英)
 * **IV % 數** 與 **IV 細項數值 (atk/def/sta)**
@@ -39,12 +44,13 @@
 
 ## 友好宣告
 
-TopGun56.js 只是出於 **懶** + **工程師的浪漫** 所以寫了這個小工具
-若造成 寶可56 的困擾與通知，即會關閉此 repo，PEACE & ROCK :metal:
+　TopGun56.js 只是出於 **懶** + **工程師的浪漫** 所以寫了這個小工具
+ 
+　若造成 寶可56 的困擾與通知，即會關閉此 repo，PEACE & ROCK :metal:
 
 ## 關於更新
 
-不定期 **更新**、**改善**、**修BUG**，歡迎 watch repo。
+　不定期 **更新**、**改善**、**修BUG**，歡迎 watch repo。
 
 > 56不能亡！當然如果 **寶可56** 亡了，也就 ...
 
