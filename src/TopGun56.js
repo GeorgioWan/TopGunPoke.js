@@ -54,17 +54,6 @@ sp = document.createElement('span');
 sp.className = 'glyphicon glyphicon-play';
 el.appendChild(sp);
 _body.appendChild(el);
-
-el = document.createElement('button');
-el.className = 'btn btn-primary';
-el.id = 'hideme';
-el.style.position = 'absolute';
-el.style.bottom = '10px';
-el.style.left = '290px';
-sp = document.createElement('span');
-sp.className = 'glyphicon glyphicon-stop';
-el.appendChild(sp);
-_body.appendChild(el);
 /*
   Document ready
 */
@@ -81,22 +70,17 @@ $(document).ready(function() {
         } catch (a) {}
         get();
     });
-    $("#hideme").on("click", function() {
-        el = document.createElement('div');
-        el.style.position = 'fixed';
-        el.style.top = '0px';
-        el.style.left = '0px';
-        el.style.width = '100%';
-        el.style.height = '100%';
-        el.style.backgroundColor  = 'white';
-        _body.appendChild(el);
-    }); 
 
     //timeout every 5 seconds
     setTimeout(findBestPokemon, 5000);
 });
 /*
-  CUSTOM FUNC
+  CUSTOM VAR
+*/
+var gLastNotifPokemon = new Array();
+var gArrBestMove = [["none", "none"], ["Vine Whip", "Sludge Bomb"], ["Vine Whip", "Solar Beam"], ["Vine Whip", "Solar Beam"], ["Scratch", "Flamethrower"], ["Scratch", "Flamethrower"], ["Wing Attack", "Fire Blast"], ["Bubble", "Aqua Tail"], ["Water Gun", "Hydro Pump"], ["Water Gun", "Hydro Pump"], ["Bug Bite", "Struggle"], ["Bug Bite", "Struggle"], ["Bug Bite", "Bug Buzz"], ["Bug Bite", "Struggle"], ["Bug Bite", "Struggle"], ["Poison Jab", "Sludge Bomb"], ["Tackle", "Aerial Ace"], ["Wing Attack", "Aerial Ace"], ["Wing Attack", "Hurricane"], ["Tackle", "Body Slam"], ["Bite", "Hyper Beam"], ["Peck", "Drill Peck"], ["Steel Wing", "Drill Run"], ["Poison Sting", "Gunk Shot"], ["Bite", "Gunk Shot"], ["Thunder Shock", "Thunder"], ["Spark", "Thunder"], ["Mud Shot", "Rock Slide"], ["Mud Shot", "Earthquake"], ["Poison Sting", "Sludge Bomb"], ["Poison Sting", "Sludge Bomb"], ["Poison Jab", "Earthquake"], ["Poison Sting", "Sludge Bomb"], ["Poison Jab", "Sludge Bomb"], ["Poison Jab", "Earthquake"], ["Pound", "Moonblast"], ["Pound", "Moonblast"], ["Ember", "Body Slam"], ["Ember", "Fire Blast"], ["Pound", "Body Slam"], ["Pound", "Hyper Beam"], ["Bite", "Sludge Bomb"], ["Wing Attack", "Poison Fang"], ["Razor Leaf", "Sludge Bomb"], ["Razor Leaf", "Sludge Bomb"], ["Razor Leaf", "Solar Beam"], ["Bug Bite", "Seed Bomb"], ["Bug Bite", "Solar Beam"], ["Bug Bite", "Signal Beam"], ["Bug Bite", "Bug Buzz"], ["Mud Shot", "Dig"], ["Mud Shot", "Earthquake"], ["Scratch", "Body Slam"], ["Scratch", "Play Rough"], ["Water Gun", "Cross Chop"], ["Water Gun", "Hydro Pump"], ["Scratch", "Cross Chop"], ["Low Kick", "Cross Chop"], ["Bite", "Body Slam"], ["Fire Fang", "Fire Blast"], ["Bubble", "Body Slam"], ["Bubble", "Scald"], ["Bubble", "Hydro Pump"], ["Zen Headbutt", "Psyshock"], ["Psycho Cut", "Shadow Ball"], ["Psycho Cut", "Psychic"], ["Low Kick", "Cross Chop"], ["Low Kick", "Cross Chop"], ["Karate Chop", "Cross Chop"], ["Vine Whip", "Power Whip"], ["Razor Leaf", "Power Whip"], ["Razor Leaf", "Solar Beam"], ["Bubble", "Water Pulse"], ["Poison Jab", "Hydro Pump"], ["Rock Throw", "Rock Slide"], ["Mud Shot", "Stone Edge"], ["Mud Shot", "Stone Edge"], ["Ember", "Fire Blast"], ["Ember", "Fire Blast"], ["Water Gun", "Psychic"], ["Water Gun", "Psychic"], ["Spark", "Thunderbolt"], ["Spark", "Flash Cannon"], ["Cut", "Leaf Blade"], ["Peck", "Drill Peck"], ["Feint Attack", "Drill Peck"], ["Water Gun", "Aqua Tail"], ["Frost Breath", "Blizzard"], ["Acid", "Sludge Bomb"], ["Poison Jab", "Sludge Bomb"], ["Tackle", "Water Pulse"], ["Frost Breath", "Blizzard"], ["Lick", "Sludge Bomb"], ["Shadow Claw", "Sludge Bomb"], ["Shadow Claw", "Sludge Wave"], ["Rock Throw", "Stone Edge"], ["Pound", "Psychic"], ["Zen Headbutt", "Psychic"], ["Bubble", "Water Pulse"], ["Metal Claw", "X Scissor"], ["Spark", "Thunderbolt"], ["Spark", "Thunderbolt"], ["Confusion", "Psychic"], ["Zen Headbutt", "Solar Beam"], ["Mud Slap", "Bone Club"], ["Mud Slap", "Earthquake"], ["Rock Smash", "Stone Edge"], ["Rock Smash", "Brick Break"], ["Zen Headbutt", "Hyper Beam"], ["Acid", "Sludge Bomb"], ["Acid", "Sludge Bomb"], ["Mud Slap", "Stomp"], ["Mud Slap", "Stone Edge"], ["Pound", "Psychic"], ["Vine Whip", "Power Whip"], ["Mud Slap", "Earthquake"], ["Water Gun", "Dragon Pulse"], ["Water Gun", "Hydro Pump"], ["Mud Shot", "Aqua Tail"], ["Poison Jab", "Megahorn"], ["Water Gun", "Power Gem"], ["Water Gun", "Hydro Pump"], ["Zen Headbutt", "Psychic"], ["Steel Wing", "Bug Buzz"], ["Frost Breath", "Psyshock"], ["Thunder Shock", "Thunder"], ["Ember", "Fire Blast"], ["Rock Smash", "X Scissor"], ["Tackle", "Earthquake"], ["Splash", "Struggle"], ["Bite", "Hydro Pump"], ["Frost Breath", "Blizzard"], ["Pound", "Struggle"], ["Tackle", "Body Slam"], ["Water Gun", "Hydro Pump"], ["Thunder Shock", "Thunder"], ["Ember", "Fire Blast"], ["Tackle", "Signal Beam"], ["Water Gun", "Brine"], ["Water Gun", "Hydro Pump"], ["Scratch", "Aqua Jet"], ["Mud Shot", "Stone Edge"], ["Bite", "Hyper Beam"], ["Zen Headbutt", "Body Slam"], ["Frost Breath", "Blizzard"], ["Thunder Shock", "Thunder"], ["Ember", "Fire Blast"], ["Dragon Breath", "Aqua Tail"], ["Dragon Breath", "Dragon Pulse"], ["Dragon Breath", "Dragon Claw"], ["Psycho Cut", "Psychic"], ["Pound", "Hurricane"]];
+/*
+  OVERWITE FUNC
 */
 function SetMarkers(a, b, c) {
   var d, e, f = "Y";
@@ -174,7 +158,30 @@ function SetMarkers(a, b, c) {
       }
   })
 }
-
+function Get_infowindow(a, b) {
+    var c = "";
+    if (!isNaN(parseInt(a.t))) {
+        var sStar1 = (pokemonMoves[a.m[0]].name == gArrBestMove[a.i][0]) ? "&#9757" : '';
+        var sStar2 = (pokemonMoves[a.m[1]].name == gArrBestMove[a.i][1]) ? "&#9757" : '';
+        var h, e = (new Date(parseInt(a.t)),
+        "https://maps.google.com/?q=" + a.a + "," + a.n), f = "https://poke5566.com/?lat=" + a.a + "&lng=" + a.n, g = "【寶可五六雷達】發現【" + pokemonZhTw[pokemonEn[a.i]] + "】囉！剩下" + b + "，消失時間" + new Date(a.t).getHours() + "時" + new Date(a.t).getMinutes() + "分，快來看看他在哪裡？";
+        h = navigator.userAgent.indexOf("iPhone") != -1 || navigator.userAgent.indexOf("Android") != -1 ? "http://line.me/R/msg/text/?" + g + f + "&referral=line" : "https://www.facebook.com/dialog/share?app_id=1680267198959582&quote=" + g + "&href=" + encodeURIComponent(f + "&referral=facebook");
+        var i;
+        a.v[0] || a.v[1] || a.v[2] || a.m[0] || a.m[1] ? (i = '<span class="myfont_line">IV <strong>' + ((a.v[0] + a.v[1] + a.v[2]) / 45 * 100).toFixed(2) + "% </strong>(" + String(a.v[0]) + "/" + String(a.v[1]) + "/" + String(a.v[2]) + ")</span><br>",
+        i += '<span class="myfont_line"><strong>' + pokemonMoves[a.m[0]].name + " </strong> (" + pokemonMovesZh[a.m[0]].zh + ')' + sStar1 + '</span>&nbsp;<span class="pull-right">' + pokemonMoves[a.m[0]].dps + " dps</span><br>",
+        i += '<span class="myfont_line"><strong>' + pokemonMoves[a.m[1]].name + " </strong> (" + pokemonMovesZh[a.m[1]].zh + ')' + sStar2 + '</span>&nbsp;<span class="pull-right">' + pokemonMoves[a.m[1]].dps + " dps</span><br>") : i = "",
+        c = "<div class=myfont_title_m><span class=myfont_line><b>" + pokemonEn[a.i] + "</b>&nbsp;(" + pokemonZhTw[pokemonEn[a.i]] + ')</span><span class="pull-right" style="padding-left: 4px; font-weight: bold"><span id=countdown>' + b + "</span></span><br>",
+        c += i,
+        c += '<span class="myfont_line">' + parseFloat(a.a.toFixed(10)) + ", " + parseFloat(a.n.toFixed(10)) + "</span></div>",
+        c += '<div style="margin-top: 2px;"><a class="btn btn-primary btn-sm" href="' + e + '" role="button" target="_blank" style="margin-right:5px;">導航&nbsp;&nbsp;<span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></a>',
+        c += '<a class="btn btn-success btn-sm" href="' + h + '" role="button" target="_blank">分享&nbsp;&nbsp;<span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span></a></div>',
+        c += '<span style="position:absolute; bottom:0; right:0; font-size:10px !important;"><b>poke5566.com</b></span>'
+    }
+    return c
+}
+/*
+  CUSTOM FUNC
+*/
 function findBestPokemon() {
   $.ajax({
     url: url(),
@@ -192,9 +199,6 @@ function findBestPokemon() {
   });
   setTimeout(findBestPokemon, 5000);
 }
-
-var gLastNotifPokemon = new Array();
-
 function SendEmailIfGoodPokemon(a, b, c) {
   var sFinalEmail = "";
   var nIVThreshold = parseInt($.cookie('iv'));
@@ -206,6 +210,8 @@ function SendEmailIfGoodPokemon(a, b, c) {
     fIV = fIV.toPrecision(4);
 
     if ((g.s >= star || (g.v[0] || g.v[1] || g.v[2])) && fIV >= nIVThreshold || g.i === 131 || g.i === 143 || g.i === 149) {
+      var sStar1 = (pokemonMoves[g.m[0]].name == gArrBestMove[g.i][0]) ? "★★★" : '',
+          sStar2 = (pokemonMoves[g.m[1]].name == gArrBestMove[g.i][1]) ? "★★★" : '';
 
       //a good pokemon!!!
       aCurrentNotifPokemon['isSended'] = isSended(g);
@@ -216,12 +222,11 @@ function SendEmailIfGoodPokemon(a, b, c) {
       aCurrentNotifPokemon['iv']       = fIV;
       aCurrentNotifPokemon['t']        = formatSecond((new Date).dateDiff("s", new Date(parseInt(g.t))));
       aCurrentNotifPokemon['iv_s']     = fIV + "% (" + g.v[0] + "/" + g.v[1] + "/" + g.v[2] + ")";
-      aCurrentNotifPokemon['m1']       = pokemonMovesZh[g.m[0]].en + " ( " + pokemonMovesZh[g.m[0]].zh + ")";
-      aCurrentNotifPokemon['m2']       = pokemonMovesZh[g.m[1]].en + " ( " + pokemonMovesZh[g.m[1]].zh + ")";
+      aCurrentNotifPokemon['m1']       = pokemonMovesZh[g.m[0]].en + " ( " + pokemonMovesZh[g.m[0]].zh + ") " + sStar1;
+      aCurrentNotifPokemon['m2']       = pokemonMovesZh[g.m[1]].en + " ( " + pokemonMovesZh[g.m[1]].zh + ") " + sStar2;
 
       //ofcourse need to save it
       arrCurrentNotifPokemon.push(aCurrentNotifPokemon);
-      
     }
   });
 
@@ -230,6 +235,7 @@ function SendEmailIfGoodPokemon(a, b, c) {
     doSendNotif(arrCurrentNotifPokemon);
 
   gLastNotifPokemon = arrCurrentNotifPokemon;
+  get();
 }
 
 function isSended(g) {
