@@ -1,4 +1,4 @@
-# TopGun56 - 寶可56 Chrome 版通知 plugin :loudspeaker:
+# TopGunPoke - 寶可56、大家找寶貝 Chrome 版通知器 :loudspeaker:
 
 泡地圖、等捷報？
 
@@ -11,11 +11,13 @@
 ## Install
 
 1. 開 Chrome 安裝 [**cjs**](https://chrome.google.com/webstore/detail/custom-javascript-for-web/poakhlngfciodnhlhhgnaaelnpjljija)
-2. 打開 [寶可56](https://poke5566.com/)
+2. 打開 [寶可56](https://poke5566.com/) 或 [大家找寶貝](https://pkget.com/)
 3. 點擊 chrome 右上角 **cjs** 圖示，將 **enable cjs for this host** 打勾
-4. 貼上 [**TopGun56.js**](https://github.com/GeorgioWan/TopGun56.js/blob/master/TopGun56.min.js) 的程式碼，點擊 Save 後會刷新頁面 (刷新頁面後即可看到左下角新增的 plugin，如下圖)
+4. 依需求貼上 [**TopGun56.js** (for 寶可56)](https://github.com/GeorgioWan/TopGunPoke.js/blob/master/pk56/TopGun56.min.js) 或 [**TopGunPK.js** (for 大家找寶貝)](https://github.com/GeorgioWan/TopGunPoke.js/blob/master/pkget/TopGunPK.min.js) 的程式碼，點擊 Save 後會刷新頁面 (刷新頁面後即可看到左下角新增的 plugin，如下圖)
 
-![TopGun56.js](http://i.imgur.com/RiNnQCW.png)
+![TopGun56.js](http://i.imgur.com/RiNnQCW.png) - 寶可56
+
+![TopGunPK.js](http://i.imgur.com/hMLjvct.png) - 大家找寶貝
 
 ## How to use
 
@@ -27,27 +29,29 @@
 
 ### 篩選範圍
 
-　同寶可56，**畫面顯示範圍** 即為 **篩選範圍**
+　同 大家找寶貝 與 寶可56，**畫面顯示範圍** 即為 **篩選範圍**
  
 ### 目前稀有怪篩選
 
 　目前版本只針對 **Snorlax (卡比獸)**、**Dragonite (快龍)** 和 **Lapras (拉普拉斯、乘龍)** 有額外通知。
  
-### 關於寶可56畫面
+### 關於畫面顯示
 
 　畫面中只會出現 **符合篩選** 與 **額外通知(見上)** 的寶可夢
 
-　除此之外，在 TopGun56 也會以 :point_up_2: 標出 **最佳技能** (僅供參考)，如下圖：
+　除此之外，在 TopGunPoke 也會以 :point_up_2: 標出 **最佳技能** (僅供參考)，如下圖：
  
-![IV100妙蛙種子](http://i.imgur.com/UVoWZLm.png)
+![寶可56-妙蛙種子](http://i.imgur.com/UVoWZLm.png)
+![大家找寶貝-快龍](http://i.imgur.com/o2ncevO.png)
 
 ### 關於通知內容
  
-以此 **56魂** 快龍為例：
+　**TopGunPoke** 的通知內容資訊很清晰，以下兩圖為例：
  
-![56魂快龍](http://i.imgur.com/n6L0dMk.png)
+![來自寶可56](http://i.imgur.com/Zf5x3MS.png)
+![來自大家找寶貝](http://i.imgur.com/jWYG4uT.png)
 
-* 將顯示畫面中 **共幾隻符合條件** 之寶可夢
+* 將顯示 **來自哪個雷達** 的通知
 * **寶可夢名稱** (中英)
 * **IV % 數** 與 **IV 細項數值 (atk/def/sta)**
 * **招式名稱** (中英)，若為 **最佳攻擊招式** 則會在後顯示 ★★★ (僅供參考)
@@ -55,17 +59,15 @@
 
 ## 友好宣告
 
-　TopGun56.js 只是出於 **懶** + **樂趣** + **工程師的浪漫** 所以寫了這個小工具
+　TopGunPoke.js 只是出於 **懶** + **樂趣** + **工程師的浪漫** 所以寫了這個小工具
  
-　若造成 寶可56 的困擾與不便，即會關閉此 repo！
+　若造成 **大家找寶貝** 或 **寶可56** 的困擾與不便，即會關閉此 repo！
  
 　**PEACE & ROCK** :metal:
 
 ## 關於更新
 
-　不定期 **更新**、**改善**、**修BUG**，歡迎 watch repo。
-
-> 56不能亡！當然如果 **寶可56** 亡了，也就 ...
+　不定期 **更新**、**改善**、**修BUG**，歡迎 star & watch repo。
 
 ## License
 
