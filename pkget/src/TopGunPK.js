@@ -197,6 +197,43 @@ function SetMarkers(a, b, d) {
         }
     })
 }
+function Get_infowindow(a, b) {
+    var d;
+    if (!isNaN(parseInt(a.d3))) {
+        var _d9 = a.d9.split("^");
+        var sStar1 = (getpkskByID(parseInt(_d9[3]))[0].Name == gArrBestMove[parseInt(a.d1)][0]) ? "&#9757" : '',
+            sStar2 = (getpkskByID(parseInt(_d9[4]))[0].Name == gArrBestMove[parseInt(a.d1)][1]) ? "&#9757" : '';
+        parseInt(a.d3);
+        d = "240";
+        var g = pkms.pkms[a.d1].pokemon_name, e = pkms.pkms[a.d1].pokemon_name_zhtw, f = right("00" + a.d1, 3), c, l = 0;
+        "^^^^^" != a.d9 ? (c = a.d9.split("^"),
+        c = parseInt(c[5])) : c = 0;
+        switch (a.d7) {
+        case "5":
+            80 <= c && (l = 1);
+            break;
+        case "3":
+            "004" == f ? 85 <= c && (l = 1) : 90 <= c && (l = 1);
+            break;
+        case "1":
+            "001" == f || "007" == f ? 85 <= c && (l = 1) : 95 <= c && (l = 1);
+            break;
+        default:
+            l = 0
+        }
+        var f = 1 == l ? "/images/blue_l/" + f + "_l.png" : "/images/" + f + ".png"
+          , h = ""
+          , p = "";
+        "^^^^^" != a.d9 && (c = a.d9.split("^"),
+        "" != c[5] && "-1" != c[5] && (p = 1 == l ? p + ("<span><b>IV</b>\uff1a<font color=red>" + c[5] + " %</font></span><br>") : p + ("<span><b>IV</b>\uff1a" + c[5] + " %</span><br>"),
+        p += "<span><b>\u653b / \u9632 / \u9ad4</b>\uff1a" + c[0] + " / " + c[1] + " / " + c[2] + "</span><br>",
+        h += "<span><b>\u666e\u901a\u6280\u80fd</b>\uff1a" + getpkskByID(c[3])[0].NameCH + "(" + getpkskByID(c[3])[0].Name + ") " + sStar1 + "</span><br><span><b>\u96c6\u6c23\u6280\u80fd</b>\uff1a" + getpkskByID(c[4])[0].NameCH + "(" + getpkskByID(c[4])[0].Name + ") " + sStar2 + "</span><br>"));
+        "" == p && (d = "200");
+        d = '<div style="float:left;width:75px;margin-top: -3px;padding-right: 5px;"><img src="' + f + '" title="' + e + '" alt="' + e + '" style="width:65px;" /></div><div style="width:' + d + 'px;white-space: nowrap;padding-top:3px;">\t<span style="color:#335EA4"><b>' + e + "</b>(" + g + ')</span><br>\t<span ><b>\u5269\u9918</b>\uff1a<span id="countdown">' + b + "</span></span><br>" + p + '<div style="float: left; width: ' + d + 'px; white-space: nowrap; padding-top: 3px;">' + h + "";
+        d = navigator.userAgent.match(/android/i) || navigator.userAgent.match(/(iphone|ipod|ipad);?/i) ? d + ('<span>\t<a href="javascript:void(0);" onclick=lineshare("' + e + '","?lat=' + a.d4 + "&lng=" + a.d5 + '");><img src="https://media.line.me/img/button/zh-hant/84x20.png" width="84" alt="\u7528LINE\u50b3\u9001" /></a></span><span>&nbsp;</span><span><a href="javascript:void(0);" onclick=Navshare("' + a.d4 + "," + a.d5 + '");><img src="images/NavTo.png" width="84" alt="\u5c0e\u822a\u81f3\u6b64\u5730" /></a></span>') : d + ('<span><a href="javascript:void(0);" onclick=Navshare("' + a.d4 + "," + a.d5 + '");><img src="images/NavTo_w.png" width="84" alt="\u7528Gmap\u958b\u555f" /></a></span>');
+        return d + "</div>"
+    }
+}
 /*
   CUSTOM VAR
 */
