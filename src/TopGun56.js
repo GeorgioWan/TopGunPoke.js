@@ -200,7 +200,6 @@ function findBestPokemon() {
   setTimeout(findBestPokemon, 5000);
 }
 function SendEmailIfGoodPokemon(a, b, c) {
-  var sFinalEmail = "";
   var nIVThreshold = parseInt($.cookie('iv'));
   var arrCurrentNotifPokemon = new Array();
 
@@ -258,7 +257,7 @@ function doSendNotif(arrCurrentNotifPokemon){
 
     arrCurrentNotifPokemon.forEach((pm, index)=>{
       if ( pm.isSended === false ){
-        var notification = new Notification("第 " + (index+1) + " 隻超猛 POKEMON (共 " + _total + " 隻)", {
+        var notification = new Notification("【寶可56】發現超猛 Pokemon！", {
           icon: pm.s >= 3 ? "https://s3-ap-northeast-1.amazonaws.com/download.poke5566.com/images/" + right("00" + pm.i, 3) + ".png" : "https://s3-ap-northeast-1.amazonaws.com/download.poke5566.com/icons/" + pm.i + ".png",
           body: pm.index + " ( " + pokemonZhTw[pokemonEn[pm.i]] + " )"+
                 '\n- iv: ' + pm.iv_s +
