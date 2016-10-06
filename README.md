@@ -68,6 +68,10 @@
 ## 關於更新
 
 　不定期 **更新**、**改善**、**修BUG**，歡迎 star & watch repo。
+ 
+## 問題回報或建議
+
+　非常歡迎與期待各種聲音的出現！如果有任何想表達的，都可以 [在這](https://github.com/GeorgioWan/TopGunPoke.js/issues) 留下你的訊息 :grin:
 
 ## License
 
