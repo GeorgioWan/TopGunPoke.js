@@ -68,7 +68,7 @@ $(document).ready(function() {
         gIV   = parseInt($("#input-iv")[0].value);
         try {
             for (var a = markers.length - 1; a >= 0; a--) {
-            	if ( markers[a].iv === undefined || markers[a].iv < gIV && !(markers[a].text === '卡比獸' || markers[a].text === '乘龍' || parseInt(k.d1) === '快龍'))
+            	if ( markers[a].iv === undefined || markers[a].iv < gIV && !(markers[a].text === '卡比獸' || markers[a].text === '乘龍' || markers[a].text === '快龍'))
             	{
             		markers[a].setMap(null), markers.splice(a, 1);
             	}
