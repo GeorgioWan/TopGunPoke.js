@@ -13,7 +13,9 @@
 1. 開 Chrome 安裝 [**cjs**](https://chrome.google.com/webstore/detail/custom-javascript-for-web/poakhlngfciodnhlhhgnaaelnpjljija)
 2. 打開 [寶可56](https://poke5566.com/) 或 [大家找寶貝](https://pkget.com/)
 3. 點擊 chrome 右上角 **cjs** 圖示，將 **enable cjs for this host** 打勾
-4. 依需求貼上 [**TopGun56.js** (for 寶可56)](https://github.com/GeorgioWan/TopGunPoke.js/blob/master/pk56/TopGun56.min.js) 或 [**TopGunPK.js** (for 大家找寶貝)](https://github.com/GeorgioWan/TopGunPoke.js/blob/master/pkget/TopGunPK.min.js) 的程式碼，點擊 Save 後會刷新頁面 (刷新頁面後即可看到左下角新增的 plugin，如下圖)
+4. 貼上 [**TopGunPoke.js**](https://github.com/GeorgioWan/TopGunPoke.js/blob/master/TopGunPoke.js) 的程式碼，或依需求貼上 [**TopGun56.js** (for 寶可56)](https://github.com/GeorgioWan/TopGunPoke.js/blob/master/src/TopGun56.js) 或 [**TopGunPK.js** (for 大家找寶貝)](https://github.com/GeorgioWan/TopGunPoke.js/blob/master/src/TopGunPK.js) 的程式碼，點擊 Save 後會刷新頁面 (刷新頁面後即可看到左下角新增的 plugin，如下圖)
+
+> **Tip**: 若沒有特殊需求或條件修改，建議使用 **TopGunPoke.js**，此將會 **自動使用最新版本**！
 
 ![TopGun56.js](http://i.imgur.com/RiNnQCW.png) - 寶可56
 
