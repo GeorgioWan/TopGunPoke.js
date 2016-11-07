@@ -1,4 +1,10 @@
-> # 10/28 更新消息
+> # 11/01 目前狀態
+
+> 目前此 pugin 因支援的雷達陣亡，故一起GG惹，這邊就推薦一下目前好用雷達：
+  
+> **網頁**請用 [FastPokeMap](https://fastpokemap.se/beta/)，**手機** 請用 [PokeWhere](http://pokewhere.co/?utm_source=fb&utm_medium=apost-tw)
+
+> ## 10/28 更新消息
 
 > 距離雷達失效已近一個月，目前低調使用 [findpkm](https://findpkm.com/)，而本 plugin 目前也只針對 **稀有度為5** 的寶可夢作通知。
 
