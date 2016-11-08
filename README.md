@@ -20,6 +20,8 @@
 
 > 所以此 plugin 也跟著唇寒齒亡，待地圖修復，方會立即更新並支援！
 
+---
+
 # TopGunPoke - 大家找寶貝 Chrome 版通知器 :loudspeaker:
 
 泡地圖、等捷報？
@@ -30,7 +32,7 @@
 
 一起點開 Chrome 坐等 **高素質** 寶可夢吧！ *... 終於可以專心做事了*:laughing::laughing:
 
-## Install
+## 安裝步驟 Install
 
 1. 開 Chrome 安裝 [**cjs**](https://chrome.google.com/webstore/detail/custom-javascript-for-web/poakhlngfciodnhlhhgnaaelnpjljija)
 2. 打開 [大家找寶貝](https://pkget.com/)
@@ -41,13 +43,13 @@
 
 ![TopGunFP.js](http://i.imgur.com/3vdIOyU.png) - 大家找寶貝 :new:
 
-## How to use
+## 如何使用 How to use
 
 * 於 **IV 輸入框** 輸入想追蹤的寶可夢 IV 值 (範圍 0 - 100，建議 85 以上，以免通知過多)
 * 輸入完值後，按下 **執行鈕**(三角形) 即開始追蹤與通知
 * :new: 透過 **追蹤選擇器** 可選擇例外通知的寶可夢喔！(此設定無論多少IV都會通知，方便追寶或增糖，**建議勾選稀有怪**)
 
-## 說明
+## 說明 Introduce
 
 ### 追蹤與篩選範圍
 
