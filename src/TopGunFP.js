@@ -63,27 +63,7 @@ el.setAttribute("aria-describedby", "addon-iv");
 ig.appendChild(sp);
 ig.appendChild(el);
 ctl.appendChild(ig);
-/*
-ig = document.createElement('div');
-ig.className = 'input-group input-group-sm';
-ig.style.position = 'absolute';
-ig.style.left = '115px';
-ig.style.width = '110px';
-sp = document.createElement('span');
-sp.id = 'addon-star';
-sp.className = 'input-group-addon';
-sp.innerHTML = '<span class="glyphicon glyphicon-star"></span>';
-el = document.createElement('input');
-el.className = 'form-control';
-el.id = 'input-star';
-el.style.textAlign = 'center';
-el.placeholder = 'STAR';
-el.value = '1';
-el.setAttribute("aria-describedby", "addon-star");
-ig.appendChild(sp);
-ig.appendChild(el);
-ctl.appendChild(ig);
-*/
+
 el = document.createElement('button');
 el.className = 'btn btn-sm btn-warning';
 el.id = 'get-custom';
@@ -97,8 +77,9 @@ ctl.appendChild(el);
 
 ctl.className = 'col-md-2';
 ctl.style.zIndex = 9999;
+ctl.style.position = 'fixed';
 ctl.style.left = '5px';
-ctl.style.bottom = '468px';
+ctl.style.bottom = '45px';
 _body.appendChild(ctl);
 /*
   GLOBAL VAR
@@ -115,23 +96,143 @@ $(document).ready(function() {
     gRun = !gRun;
 
     if (gRun){
-      gInterval = setInterval(findBestPokemon, 5000);
-      findBestPokemon();
+      gInterval = setInterval(gda, 5000);
+      gda();
     }
     else
       clearInterval(gInterval);
   });
 });
-
 /*
-  CUSTOM VAR
+  OVERWRITE FUNC
 */
-var gLastNotifPokemon = new Array();
-var gArrBestMove = [["none", "none"], ["Vine Whip", "Sludge Bomb"], ["Vine Whip", "Solar Beam"], ["Vine Whip", "Solar Beam"], ["Scratch", "Flamethrower"], ["Scratch", "Flamethrower"], ["Wing Attack", "Fire Blast"], ["Bubble", "Aqua Tail"], ["Water Gun", "Hydro Pump"], ["Water Gun", "Hydro Pump"], ["Bug Bite", "Struggle"], ["Bug Bite", "Struggle"], ["Bug Bite", "Bug Buzz"], ["Bug Bite", "Struggle"], ["Bug Bite", "Struggle"], ["Poison Jab", "Sludge Bomb"], ["Tackle", "Aerial Ace"], ["Wing Attack", "Aerial Ace"], ["Wing Attack", "Hurricane"], ["Tackle", "Body Slam"], ["Bite", "Hyper Beam"], ["Peck", "Drill Peck"], ["Steel Wing", "Drill Run"], ["Poison Sting", "Gunk Shot"], ["Bite", "Gunk Shot"], ["Thunder Shock", "Thunder"], ["Spark", "Thunder"], ["Mud Shot", "Rock Slide"], ["Mud Shot", "Earthquake"], ["Poison Sting", "Sludge Bomb"], ["Poison Sting", "Sludge Bomb"], ["Poison Jab", "Earthquake"], ["Poison Sting", "Sludge Bomb"], ["Poison Jab", "Sludge Bomb"], ["Poison Jab", "Earthquake"], ["Pound", "Moonblast"], ["Pound", "Moonblast"], ["Ember", "Body Slam"], ["Ember", "Fire Blast"], ["Pound", "Body Slam"], ["Pound", "Hyper Beam"], ["Bite", "Sludge Bomb"], ["Wing Attack", "Poison Fang"], ["Razor Leaf", "Sludge Bomb"], ["Razor Leaf", "Sludge Bomb"], ["Razor Leaf", "Solar Beam"], ["Bug Bite", "Seed Bomb"], ["Bug Bite", "Solar Beam"], ["Bug Bite", "Signal Beam"], ["Bug Bite", "Bug Buzz"], ["Mud Shot", "Dig"], ["Mud Shot", "Earthquake"], ["Scratch", "Body Slam"], ["Scratch", "Play Rough"], ["Water Gun", "Cross Chop"], ["Water Gun", "Hydro Pump"], ["Scratch", "Cross Chop"], ["Low Kick", "Cross Chop"], ["Bite", "Body Slam"], ["Fire Fang", "Fire Blast"], ["Bubble", "Body Slam"], ["Bubble", "Scald"], ["Bubble", "Hydro Pump"], ["Zen Headbutt", "Psyshock"], ["Psycho Cut", "Shadow Ball"], ["Psycho Cut", "Psychic"], ["Low Kick", "Cross Chop"], ["Low Kick", "Cross Chop"], ["Karate Chop", "Cross Chop"], ["Vine Whip", "Power Whip"], ["Razor Leaf", "Power Whip"], ["Razor Leaf", "Solar Beam"], ["Bubble", "Water Pulse"], ["Poison Jab", "Hydro Pump"], ["Rock Throw", "Rock Slide"], ["Mud Shot", "Stone Edge"], ["Mud Shot", "Stone Edge"], ["Ember", "Fire Blast"], ["Ember", "Fire Blast"], ["Water Gun", "Psychic"], ["Water Gun", "Psychic"], ["Spark", "Thunderbolt"], ["Spark", "Flash Cannon"], ["Cut", "Leaf Blade"], ["Peck", "Drill Peck"], ["Feint Attack", "Drill Peck"], ["Water Gun", "Aqua Tail"], ["Frost Breath", "Blizzard"], ["Acid", "Sludge Bomb"], ["Poison Jab", "Sludge Bomb"], ["Tackle", "Water Pulse"], ["Frost Breath", "Blizzard"], ["Lick", "Sludge Bomb"], ["Shadow Claw", "Sludge Bomb"], ["Shadow Claw", "Sludge Wave"], ["Rock Throw", "Stone Edge"], ["Pound", "Psychic"], ["Zen Headbutt", "Psychic"], ["Bubble", "Water Pulse"], ["Metal Claw", "X Scissor"], ["Spark", "Thunderbolt"], ["Spark", "Thunderbolt"], ["Confusion", "Psychic"], ["Zen Headbutt", "Solar Beam"], ["Mud Slap", "Bone Club"], ["Mud Slap", "Earthquake"], ["Rock Smash", "Stone Edge"], ["Rock Smash", "Brick Break"], ["Zen Headbutt", "Hyper Beam"], ["Acid", "Sludge Bomb"], ["Acid", "Sludge Bomb"], ["Mud Slap", "Stomp"], ["Mud Slap", "Stone Edge"], ["Pound", "Psychic"], ["Vine Whip", "Power Whip"], ["Mud Slap", "Earthquake"], ["Water Gun", "Dragon Pulse"], ["Water Gun", "Hydro Pump"], ["Mud Shot", "Aqua Tail"], ["Poison Jab", "Megahorn"], ["Water Gun", "Power Gem"], ["Water Gun", "Hydro Pump"], ["Zen Headbutt", "Psychic"], ["Steel Wing", "Bug Buzz"], ["Frost Breath", "Psyshock"], ["Thunder Shock", "Thunder"], ["Ember", "Fire Blast"], ["Rock Smash", "X Scissor"], ["Tackle", "Earthquake"], ["Splash", "Struggle"], ["Bite", "Hydro Pump"], ["Frost Breath", "Blizzard"], ["Pound", "Struggle"], ["Tackle", "Body Slam"], ["Water Gun", "Hydro Pump"], ["Thunder Shock", "Thunder"], ["Ember", "Fire Blast"], ["Tackle", "Signal Beam"], ["Water Gun", "Brine"], ["Water Gun", "Hydro Pump"], ["Scratch", "Aqua Jet"], ["Mud Shot", "Stone Edge"], ["Bite", "Hyper Beam"], ["Zen Headbutt", "Body Slam"], ["Frost Breath", "Blizzard"], ["Thunder Shock", "Thunder"], ["Ember", "Fire Blast"], ["Dragon Breath", "Aqua Tail"], ["Dragon Breath", "Dragon Pulse"], ["Dragon Breath", "Dragon Claw"], ["Psycho Cut", "Psychic"], ["Pound", "Hurricane"]];
-/*
-  CUSTOM FUNC
-*/
-function findBestPokemon() {
+var _iv = 0 ;
+function SetMarkers(e, t) {
+    var n, r, i, a = 0, o = "Y", s = "";
+    $.each(t.fp, function(t, c) {
+        if (o = "Y",
+        markers.length > 0)
+            for (var p = 0; p < markers.length; p++)
+                if (c.a == markers[p].pokeid && c.c == markers[p].lat && c.d == markers[p].lng) {
+                    o = "N";
+                    break
+                }
+        if (CheckMySec(c.b) > 1 || (o = "N"), "Y" == o) {
+            if (n = "", r = 0, i = right("00" + c.a, 3), "^^^^^" != c.f) {
+                var l = c.f.split("^");
+                a = parseInt(l[5]);
+                _iv = parseFloat(l[5]);
+            } else {
+                a = 0;
+                _iv = 0;
+            }
+            switch (c.e) {
+            case "5":
+                80 > a ? (n = "/images/" + i + ".png",
+                r = parseInt("5" + i),
+                s = "65") : (n = "/images/blue_l/" + i + "_l.png",
+                r = parseInt("6" + i),
+                s = "85");
+                break;
+            case "3":
+                "004" == i ? 85 > a ? (n = "/images/mm/" + i + ".png",
+                r = parseInt("3" + i),
+                s = "50") : (n = "/images/blue_m/" + i + "_m.png",
+                r = parseInt("4" + i),
+                s = "65") : 90 > a ? (n = "/images/mm/" + i + ".png",
+                r = parseInt("3" + i),
+                s = "50") : (n = "/images/blue_m/" + i + "_m.png",
+                r = parseInt("4" + i),
+                s = "65");
+                break;
+            case "1":
+                "001" == i || "007" == i ? 85 > a ? (n = "/images/ss/" + i + ".png",
+                r = parseInt(i),
+                s = "30") : (n = "/images/blue_s/" + i + "_s.png",
+                r = parseInt("2" + i),
+                s = "45") : 95 > a ? (n = "/images/mm/" + i + ".png",
+                r = parseInt(i),
+                s = "30") : (n = "/images/blue_s/" + i + "_s.png",
+                r = parseInt("2" + i),
+                s = "45");
+                break;
+            default:
+                n = "/images/ss/" + i + ".png",
+                r = parseInt(i),
+                s = "30"
+            }
+            var h = new L.LatLng(c.c,c.d)
+              , u = c.a
+              , g = new L.marker(h,{
+                icon: createIcon(u, n, s),
+                times: c.b
+            });
+            g.setZIndexOffset(parseInt(s));
+            var d = L.popup({
+                maxWidth: 500,
+                maxHeight: 400
+            });
+            g.bindPopup(d),
+            g.on("click", function(t) {
+                var n = 0;
+                if (!isNaN(parseInt(c.b))) {
+                    var r = new Date;
+                    myEndTime = new Date(parseInt(c.b)),
+                    n = r.dateDiff("s", myEndTime),
+                    0 > n && (n = 0,
+                    e.removeLayer(g))
+                }
+                if (n > 0) {
+                    getSecs();
+                    var i = t.target.getPopup();
+                    i.setContent(showpopup(c, formatSecond(n))),
+                    i.update(),
+                    this.openPopup(),
+                    clicktype = "click"
+                }
+            }),
+            g.on("popupclose", function() {
+                clicktype = "",
+                window.clearTimeout(myTimer)
+            }),
+            g.on("mouseover", function(t) {
+                var n = 0;
+                if (!isNaN(parseInt(c.b))) {
+                    var r = new Date;
+                    myEndTime = new Date(parseInt(c.b)),
+                    n = r.dateDiff("s", myEndTime),
+                    0 > n && (n = 0,
+                    e.removeLayer(g))
+                }
+                if (n > 0 && "" == clicktype) {
+                    getSecs();
+                    var i = t.target.getPopup();
+                    i.setContent(showpopup(c, formatSecond(n))),
+                    i.update(),
+                    this.openPopup(),
+                    clicktype = "mouseover"
+                }
+            }),
+            g.on("mouseout", function() {
+                "mouseover" == clicktype && (this.closePopup(),
+                window.clearTimeout(myTimer),
+                clicktype = "")
+            }),
+            markers.push({
+                marker: g,
+                pokeid: u,
+                lat: c.c,
+                lng: c.d,
+                times: c.b,
+                active: !0,
+                iv: _iv
+            }),
+            e.addLayer(g),
+            g.setLatLng(h)
+        }
+    })
+}
+function gda() {
   lat0 = map.getBounds().getNorthEast().lat,
   lng0 = map.getBounds().getNorthEast().lng,
   lat1 = map.getBounds().getSouthWest().lat,
@@ -173,10 +274,14 @@ function findBestPokemon() {
                       else {
                           SetMarkers(map, e);
                           for (var t = [], r = 0; r < markers.length; r++)
+                            if(gRun)
+                              markers[r].lat < lat0 && markers[r].lat > lat1 && markers[r].lng < lng0 && markers[r].lng > lng1 && (markers[r].iv >= parseInt($("#input-iv")[0].value) || isSelectedPokemon(markers[r].pokeid)) ? t.push(markers[r]) : map.removeLayer(markers[r].marker);
+                            else
                               markers[r].lat < lat0 && markers[r].lat > lat1 && markers[r].lng < lng0 && markers[r].lng > lng1 ? t.push(markers[r]) : map.removeLayer(markers[r].marker);
                           markers = t
 
-                          SendEmailIfGoodPokemon(map, e);
+                          if (gRun)
+                            SendEmailIfGoodPokemon(map, e);
                       }
                   $icon.removeClass(animateClass),
                   $("#update").attr("disabled", !1)
@@ -195,6 +300,14 @@ function findBestPokemon() {
   blng1 = lng1,
   SetCookie()
 }
+/*
+  CUSTOM VAR
+*/
+var gLastNotifPokemon = new Array();
+var gArrBestMove = [["none", "none"], ["Vine Whip", "Sludge Bomb"], ["Vine Whip", "Solar Beam"], ["Vine Whip", "Solar Beam"], ["Scratch", "Flamethrower"], ["Scratch", "Flamethrower"], ["Wing Attack", "Fire Blast"], ["Bubble", "Aqua Tail"], ["Water Gun", "Hydro Pump"], ["Water Gun", "Hydro Pump"], ["Bug Bite", "Struggle"], ["Bug Bite", "Struggle"], ["Bug Bite", "Bug Buzz"], ["Bug Bite", "Struggle"], ["Bug Bite", "Struggle"], ["Poison Jab", "Sludge Bomb"], ["Tackle", "Aerial Ace"], ["Wing Attack", "Aerial Ace"], ["Wing Attack", "Hurricane"], ["Tackle", "Body Slam"], ["Bite", "Hyper Beam"], ["Peck", "Drill Peck"], ["Steel Wing", "Drill Run"], ["Poison Sting", "Gunk Shot"], ["Bite", "Gunk Shot"], ["Thunder Shock", "Thunder"], ["Spark", "Thunder"], ["Mud Shot", "Rock Slide"], ["Mud Shot", "Earthquake"], ["Poison Sting", "Sludge Bomb"], ["Poison Sting", "Sludge Bomb"], ["Poison Jab", "Earthquake"], ["Poison Sting", "Sludge Bomb"], ["Poison Jab", "Sludge Bomb"], ["Poison Jab", "Earthquake"], ["Pound", "Moonblast"], ["Pound", "Moonblast"], ["Ember", "Body Slam"], ["Ember", "Fire Blast"], ["Pound", "Body Slam"], ["Pound", "Hyper Beam"], ["Bite", "Sludge Bomb"], ["Wing Attack", "Poison Fang"], ["Razor Leaf", "Sludge Bomb"], ["Razor Leaf", "Sludge Bomb"], ["Razor Leaf", "Solar Beam"], ["Bug Bite", "Seed Bomb"], ["Bug Bite", "Solar Beam"], ["Bug Bite", "Signal Beam"], ["Bug Bite", "Bug Buzz"], ["Mud Shot", "Dig"], ["Mud Shot", "Earthquake"], ["Scratch", "Body Slam"], ["Scratch", "Play Rough"], ["Water Gun", "Cross Chop"], ["Water Gun", "Hydro Pump"], ["Scratch", "Cross Chop"], ["Low Kick", "Cross Chop"], ["Bite", "Body Slam"], ["Fire Fang", "Fire Blast"], ["Bubble", "Body Slam"], ["Bubble", "Scald"], ["Bubble", "Hydro Pump"], ["Zen Headbutt", "Psyshock"], ["Psycho Cut", "Shadow Ball"], ["Psycho Cut", "Psychic"], ["Low Kick", "Cross Chop"], ["Low Kick", "Cross Chop"], ["Karate Chop", "Cross Chop"], ["Vine Whip", "Power Whip"], ["Razor Leaf", "Power Whip"], ["Razor Leaf", "Solar Beam"], ["Bubble", "Water Pulse"], ["Poison Jab", "Hydro Pump"], ["Rock Throw", "Rock Slide"], ["Mud Shot", "Stone Edge"], ["Mud Shot", "Stone Edge"], ["Ember", "Fire Blast"], ["Ember", "Fire Blast"], ["Water Gun", "Psychic"], ["Water Gun", "Psychic"], ["Spark", "Thunderbolt"], ["Spark", "Flash Cannon"], ["Cut", "Leaf Blade"], ["Peck", "Drill Peck"], ["Feint Attack", "Drill Peck"], ["Water Gun", "Aqua Tail"], ["Frost Breath", "Blizzard"], ["Acid", "Sludge Bomb"], ["Poison Jab", "Sludge Bomb"], ["Tackle", "Water Pulse"], ["Frost Breath", "Blizzard"], ["Lick", "Sludge Bomb"], ["Shadow Claw", "Sludge Bomb"], ["Shadow Claw", "Sludge Wave"], ["Rock Throw", "Stone Edge"], ["Pound", "Psychic"], ["Zen Headbutt", "Psychic"], ["Bubble", "Water Pulse"], ["Metal Claw", "X Scissor"], ["Spark", "Thunderbolt"], ["Spark", "Thunderbolt"], ["Confusion", "Psychic"], ["Zen Headbutt", "Solar Beam"], ["Mud Slap", "Bone Club"], ["Mud Slap", "Earthquake"], ["Rock Smash", "Stone Edge"], ["Rock Smash", "Brick Break"], ["Zen Headbutt", "Hyper Beam"], ["Acid", "Sludge Bomb"], ["Acid", "Sludge Bomb"], ["Mud Slap", "Stomp"], ["Mud Slap", "Stone Edge"], ["Pound", "Psychic"], ["Vine Whip", "Power Whip"], ["Mud Slap", "Earthquake"], ["Water Gun", "Dragon Pulse"], ["Water Gun", "Hydro Pump"], ["Mud Shot", "Aqua Tail"], ["Poison Jab", "Megahorn"], ["Water Gun", "Power Gem"], ["Water Gun", "Hydro Pump"], ["Zen Headbutt", "Psychic"], ["Steel Wing", "Bug Buzz"], ["Frost Breath", "Psyshock"], ["Thunder Shock", "Thunder"], ["Ember", "Fire Blast"], ["Rock Smash", "X Scissor"], ["Tackle", "Earthquake"], ["Splash", "Struggle"], ["Bite", "Hydro Pump"], ["Frost Breath", "Blizzard"], ["Pound", "Struggle"], ["Tackle", "Body Slam"], ["Water Gun", "Hydro Pump"], ["Thunder Shock", "Thunder"], ["Ember", "Fire Blast"], ["Tackle", "Signal Beam"], ["Water Gun", "Brine"], ["Water Gun", "Hydro Pump"], ["Scratch", "Aqua Jet"], ["Mud Shot", "Stone Edge"], ["Bite", "Hyper Beam"], ["Zen Headbutt", "Body Slam"], ["Frost Breath", "Blizzard"], ["Thunder Shock", "Thunder"], ["Ember", "Fire Blast"], ["Dragon Breath", "Aqua Tail"], ["Dragon Breath", "Dragon Pulse"], ["Dragon Breath", "Dragon Claw"], ["Psycho Cut", "Psychic"], ["Pound", "Hurricane"]];
+/*
+  CUSTOM FUNC
+*/
 function isSelectedPokemon(id){
 	let selectedPoke = $('.selectpicker').find("option:selected");
 	
@@ -214,7 +327,7 @@ function SendEmailIfGoodPokemon(a, b) {
     var fIV = parseFloat(_f[5]);
     fIV = fIV.toPrecision(4);
 
-    if (/*parseInt(g.e) >= parseInt($("#input-star")[0].value) ||*/ fIV >= parseInt($("#input-iv")[0].value) || isSelectedPokemon(g.a)) {
+    if (fIV >= parseInt($("#input-iv")[0].value) || isSelectedPokemon(g.a)) {
       //a good pokemon!!!
       aCurrentNotifPokemon['isSended'] = isSended(g);
       aCurrentNotifPokemon['index']    = parseInt(g.a);
