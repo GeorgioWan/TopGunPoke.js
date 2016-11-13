@@ -113,12 +113,16 @@ function SetMarkers(e, t) {
         if (o = "Y",
         markers.length > 0)
             for (var p = 0; p < markers.length; p++)
-                if (c.a == markers[p].pokeid && c.c == markers[p].lat && c.d == markers[p].lng) {
+                if (dec(c.a) == markers[p].pokeid && c.c == markers[p].lat && c.d == markers[p].lng) {
                     o = "N";
                     break
                 }
-        if (CheckMySec(c.b) > 1 || (o = "N"), "Y" == o) {
-            if (n = "", r = 0, i = right("00" + c.a, 3), "^^^^^" != c.f) {
+        if (CheckMySec(c.b) > 1 || (o = "N"),
+        "Y" == o) {
+            if (n = "",
+            r = 0,
+            i = right("00" + dec(c.a), 3),
+            "^^^^^" != c.f) {
                 var l = c.f.split("^");
                 a = parseInt(l[5]);
                 _iv = parseFloat(l[5]);
@@ -162,7 +166,7 @@ function SetMarkers(e, t) {
                 s = "30"
             }
             var h = new L.LatLng(c.c,c.d)
-              , u = c.a
+              , u = dec(c.a)
               , g = new L.marker(h,{
                 icon: createIcon(u, n, s),
                 times: c.b
@@ -233,72 +237,73 @@ function SetMarkers(e, t) {
     })
 }
 function gda() {
-  lat0 = map.getBounds().getNorthEast().lat,
-  lng0 = map.getBounds().getNorthEast().lng,
-  lat1 = map.getBounds().getSouthWest().lat,
-  lng1 = map.getBounds().getSouthWest().lng;
-  var e = blat0 - lat0;
-  0 > e && (e = -1 * e);
-  var t = blng0 - lng0;
-  if (0 > t && (t = -1 * t),
-  1 == animateGo && (e = .1),
-  e = .1,
-  e > 5e-4 || 1 == DDLidchange) {
-      var r = lng1 - lng0;
-      if (0 > r && (r = -1 * r),
-      size = navigator.userAgent.match(/android/i) ? .07 : navigator.userAgent.match(/(iphone|ipod|ipad);?/i) ? .07 : .14,
-      plus(),
-      size > r) {
-          $icon.addClass(animateClass),
-          $("#update").attr("disabled", !0);
-          var n = (64 * Math.random() + 1,
-          64 * Math.random() + 1,
-          (new Date).Format("yyyy-MM-dd hh:mm:ss"))
-            , i = ed.Encrypt("" + lat0 + "^" + n)
-            , a = ed.Encrypt("" + lng1 + "^" + tf);
-          i = encodeURIComponent(i),
-          a = encodeURIComponent(a);
-          var o = "fp.ashx?a=" + lat0 + "&b=" + lng0 + "&c=" + lat1 + "&d=" + lng1 + "&e=" + LimitItem + "&f=" + i + "&g=" + a;
-          $.ajax({
-              url: o,
-              async: !0,
-              dataType: "JSON",
-              success: function(e) {
-                  if (e)
-                      if ("error" == e.fp[0].a)
-                          alert(e.fp[0].b);
-                      else if ("error2" == e.fp[0].a)
-                          ;
-                      else if ("out" == e.fp[0].a)
-                          alert(e.fp[0].b);
-                      else {
+    lat0 = map.getBounds().getNorthEast().lat,
+    lng0 = map.getBounds().getNorthEast().lng,
+    lat1 = map.getBounds().getSouthWest().lat,
+    lng1 = map.getBounds().getSouthWest().lng;
+    var e = blat0 - lat0;
+    0 > e && (e = -1 * e);
+    var t = blng0 - lng0;
+    if (0 > t && (t = -1 * t),
+    1 == animateGo && (e = .1),
+    e = .1,
+    e > 5e-4 || 1 == DDLidchange) {
+        var n = lng1 - lng0;
+        if (0 > n && (n = -1 * n),
+        size = navigator.userAgent.match(/android/i) ? .07 : navigator.userAgent.match(/(iphone|ipod|ipad);?/i) ? .07 : .14,
+        plus(),
+        size > n) {
+            $icon.addClass(animateClass),
+            $("#update").attr("disabled", !0);
+            var r = (64 * Math.random() + 1,
+            64 * Math.random() + 1,
+            (new Date).Format("yyyy-MM-dd hh:mm:ss"))
+              , i = ed.Encrypt("" + lat0 + "^" + r)
+              , a = ed.Encrypt("" + lng1 + "^" + tf);
+            i = encodeURIComponent(i),
+            a = encodeURIComponent(a);
+            var o = "fp.ashx?a=" + lat0 + "&b=" + lng0 + "&c=" + lat1 + "&d=" + lng1 + "&e=" + LimitItem + "&f=" + i + "&g=" + a + "&h=" + h + "&j=345";
+            $.ajax({
+                url: o,
+                async: !0,
+                dataType: "JSON",
+                success: function(e) {
+                    if (e)
+                        if ("error" == e.fp[0].a)
+                            alert(e.fp[0].b);
+                        else if ("error2" == e.fp[0].a)
+                            ;
+                        else if ("out" == e.fp[0].a)
+                            alert(e.fp[0].b);
+                        else {
                           SetMarkers(map, e);
-                          for (var t = [], r = 0; r < markers.length; r++)
+                          for (var t = [], n = 0; n < markers.length; n++)
                             if(gRun)
-                              markers[r].lat < lat0 && markers[r].lat > lat1 && markers[r].lng < lng0 && markers[r].lng > lng1 && (markers[r].iv >= parseInt($("#input-iv")[0].value) || isSelectedPokemon(markers[r].pokeid)) ? t.push(markers[r]) : map.removeLayer(markers[r].marker);
-                            else
-                              markers[r].lat < lat0 && markers[r].lat > lat1 && markers[r].lng < lng0 && markers[r].lng > lng1 ? t.push(markers[r]) : map.removeLayer(markers[r].marker);
+                            	markers[n].lat < lat0 && markers[n].lat > lat1 && markers[n].lng < lng0 && markers[n].lng > lng1 && (markers[n].iv >= parseInt($("#input-iv")[0].value) || isSelectedPokemon(markers[n].pokeid)) ? t.push(markers[n]) : map.removeLayer(markers[n].marker);
+                          	else
+                          		markers[n].lat < lat0 && markers[n].lat > lat1 && markers[n].lng < lng0 && markers[n].lng > lng1 ? t.push(markers[n]) : map.removeLayer(markers[n].marker);
+                              
                           markers = t
 
                           if (gRun)
                             SendEmailIfGoodPokemon(map, e);
-                      }
-                  $icon.removeClass(animateClass),
-                  $("#update").attr("disabled", !1)
-              },
-              error: function() {
-                  $icon.removeClass(animateClass),
-                  $("#update").attr("disabled", !1)
-              }
-          })
-      }
-      DDLidchange = 0
-  }
-  blat0 = lat0,
-  blng0 = lng0,
-  blat1 = lat1,
-  blng1 = lng1,
-  SetCookie()
+                        }
+                    $icon.removeClass(animateClass),
+                    $("#update").attr("disabled", !1)
+                },
+                error: function() {
+                    $icon.removeClass(animateClass),
+                    $("#update").attr("disabled", !1)
+                }
+            })
+        }
+        DDLidchange = 0
+    }
+    blat0 = lat0,
+    blng0 = lng0,
+    blat1 = lat1,
+    blng1 = lng1,
+    SetCookie()
 }
 /*
   CUSTOM VAR
@@ -313,7 +318,7 @@ function isSelectedPokemon(id){
 	
 	if(selectedPoke.length !== 0)
 	  for(let i = 0 ; i < selectedPoke.length ; i++)
-	  	if(selectedPoke[i].value === id)
+	  	if(parseInt(selectedPoke[i].value) === id)
 	  		return true;
 
   return false;
@@ -327,12 +332,12 @@ function SendEmailIfGoodPokemon(a, b) {
     var fIV = parseFloat(_f[5]);
     fIV = fIV.toPrecision(4);
 
-    if (fIV >= parseInt($("#input-iv")[0].value) || isSelectedPokemon(g.a)) {
+    if (fIV >= parseInt($("#input-iv")[0].value) || isSelectedPokemon(dec(g.a))) {
       //a good pokemon!!!
       aCurrentNotifPokemon['isSended'] = isSended(g);
-      aCurrentNotifPokemon['index']    = parseInt(g.a);
-      aCurrentNotifPokemon['name']     = poke.poke[parseInt(g.a)].name + " (" + poke.poke[parseInt(g.a)].zhtw + ") ";
-      aCurrentNotifPokemon['i']        = parseInt(g.a);
+      aCurrentNotifPokemon['index']    = dec(g.a);
+      aCurrentNotifPokemon['name']     = poke.poke[dec(g.a)].name + " (" + poke.poke[dec(g.a)].zhtw + ") ";
+      aCurrentNotifPokemon['i']        = dec(g.a);
       aCurrentNotifPokemon['s']        = parseInt(g.e);
       aCurrentNotifPokemon['lnt']      = parseFloat(g.c); // position for diff pokemon alert or not
       aCurrentNotifPokemon['lng']      = parseFloat(g.d); // position for diff pokemon alert or not
@@ -341,8 +346,8 @@ function SendEmailIfGoodPokemon(a, b) {
       aCurrentNotifPokemon['iv_s']     = _f[0] ? (fIV + "% (" + parseInt(_f[0]) + "/" + parseInt(_f[1]) + "/" + parseInt(_f[2]) + ")") : '未提供';
 
       if ( _f[3].length ){
-      	var sStar1 = (getpkskByID(parseInt(_f[3]))[0].name === gArrBestMove[parseInt(g.a)][0]) ? "★★★" : '',
-          	sStar2 = (getpkskByID(parseInt(_f[4]))[0].name === gArrBestMove[parseInt(g.a)][1]) ? "★★★" : '';
+      	var sStar1 = (getpkskByID(parseInt(_f[3]))[0].name === gArrBestMove[dec(g.a)][0]) ? "★★★" : '',
+          	sStar2 = (getpkskByID(parseInt(_f[4]))[0].name === gArrBestMove[dec(g.a)][1]) ? "★★★" : '';
 
         aCurrentNotifPokemon['m1']     = getpkskByID(parseInt(_f[3]))[0].name + " ( " + getpkskByID(parseInt(_f[3]))[0].zhtw + ") " + sStar1 ;
 	      aCurrentNotifPokemon['m2']     = getpkskByID(parseInt(_f[4]))[0].name + " ( " + getpkskByID(parseInt(_f[4]))[0].zhtw + ") " + sStar2 ;
@@ -365,7 +370,7 @@ function SendEmailIfGoodPokemon(a, b) {
 function isSended(g) {
   var isSended = false;
   gLastNotifPokemon.forEach((pm) => {
-    if ( pm.index === parseInt(g.a) && pm.lnt === parseFloat(g.c) )
+    if ( pm.index === dec(g.a) && pm.lnt === parseFloat(g.c) )
     {
       isSended = true;
       return true;
