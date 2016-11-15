@@ -93,7 +93,7 @@ var gRun = false,
   Document ready
 */
 $(document).ready(function() {
-  console.log(" - version: " + g_ver + " / " + g_date );
+  console.log("== " + g_ver + " / " + g_date + " ==" );
 
   $("#get-custom").on("click", function() {
     $("#get-custom span")[0].classList.toggle("glyphicon-stop");
@@ -318,6 +318,40 @@ var gArrBestMove = [["none", "none"], ["Vine Whip", "Sludge Bomb"], ["Vine Whip"
 /*
   CUSTOM FUNC
 */
+function timeDifference(previous) {
+
+  let msPerMinute = 60 * 1000;
+  let msPerHour = msPerMinute * 60;
+  let msPerDay = msPerHour * 24;
+  let msPerMonth = msPerDay * 30;
+  let msPerYear = msPerDay * 365;
+
+  var elapsed = new Date() - previous;
+
+  if (elapsed < msPerMinute) {
+       return Math.round(elapsed/1000) + ' seconds ago';   
+  }
+
+  else if (elapsed < msPerHour) {
+       return Math.round(elapsed/msPerMinute) + ' minutes ago';   
+  }
+
+  else if (elapsed < msPerDay ) {
+       return Math.round(elapsed/msPerHour ) + ' hours ago';   
+  }
+
+  else if (elapsed < msPerMonth) {
+      return Math.round(elapsed/msPerDay) + ' days ago';   
+  }
+
+  else if (elapsed < msPerYear) {
+      return Math.round(elapsed/msPerMonth) + ' months ago';   
+  }
+  else {
+      return Math.round(elapsed/msPerYear ) + ' years ago';   
+  }
+}
+
 function isSelectedPokemon(id){
 	let selectedPoke = $('.selectpicker').find("option:selected");
 	
@@ -405,6 +439,13 @@ function doSendNotif(arrCurrentNotifPokemon){
         setTimeout(function(){
             notification.close();
         }, 20000);
+
+        // History log
+        const dt = new Date();
+        console.info(
+          '[' + dt.toLocaleDateString() + ' ' + dt.toLocaleTimeString() + '] ' +
+          pm.name + 'IV: ' + pm.iv_s + ' ' + pm.m1 + ', ' + pm.m2
+        );
       }
     });
       
