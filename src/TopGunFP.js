@@ -6,6 +6,9 @@ var ig, sp, el,
     _body = document.getElementsByTagName('body')[0],
     _head = document.getElementsByTagName('head')[0];
 
+var g_ver  = '1.2.4',
+    g_date = '20161115';
+
 /** Bootstrap-select **/
 ig = document.createElement('link');
 ig.rel = "stylesheet";
@@ -90,6 +93,8 @@ var gRun = false,
   Document ready
 */
 $(document).ready(function() {
+  console.log(" - version: " + g_ver + " / " + g_date );
+
   $("#get-custom").on("click", function() {
     $("#get-custom span")[0].classList.toggle("glyphicon-stop");
     $("#get-custom span")[0].classList.toggle("glyphicon-play");
