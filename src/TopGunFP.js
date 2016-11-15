@@ -6,8 +6,16 @@ var ig, sp, el,
     _body = document.getElementsByTagName('body')[0],
     _head = document.getElementsByTagName('head')[0];
 
-var g_ver  = '1.2.4',
-    g_date = '20161115';
+var g_ver  = '1.2.5',
+    g_date = '2016.11.15';
+
+el = document.createElement('div');
+el.className = 'alert alert-info';
+el.style.position = 'absolute';
+el.style.bottom = '30px';
+el.style.width = '200px';
+el.innerHTML = '<b>TopGunPoke GO</b><br/> <span class="label label-danger">v' + g_ver + '</span> <span class="label label-primary">' + g_date + '</span>';
+ctl.appendChild(el);
 
 /** Bootstrap-select **/
 ig = document.createElement('link');
@@ -93,8 +101,6 @@ var gRun = false,
   Document ready
 */
 $(document).ready(function() {
-  console.log("== " + g_ver + " / " + g_date + " ==" );
-
   $("#get-custom").on("click", function() {
     $("#get-custom span")[0].classList.toggle("glyphicon-stop");
     $("#get-custom span")[0].classList.toggle("glyphicon-play");
