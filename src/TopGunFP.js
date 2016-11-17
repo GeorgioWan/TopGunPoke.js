@@ -6,8 +6,8 @@ var ig, sp, el,
     _body = document.getElementsByTagName('body')[0],
     _head = document.getElementsByTagName('head')[0];
 
-var g_ver  = '1.2.5',
-    g_date = '2016.11.15';
+var g_ver  = '1.2.6',
+    g_date = '2016.11.17';
 
 el = document.createElement('div');
 el.className = 'alert alert-info';
