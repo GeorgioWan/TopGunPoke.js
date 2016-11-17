@@ -6,6 +6,8 @@
 
 > 釋出日期：**2016/11/17**
 
+> 【版本更新消息】 更新 api、修正消失時間顯示錯誤 bug。
+
 ---
 
 # TopGunPoke - 大家找寶貝 Chrome 版通知器 :loudspeaker:
