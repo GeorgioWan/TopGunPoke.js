@@ -35,9 +35,7 @@
 4. 新增一筆資料，於 URL filter 填入 **https://pkget.com**
 5. 於 Javascript code 貼上 [**TopGunPoke.js**](https://github.com/GeorgioWan/TopGunPoke.js/blob/master/TopGunPoke.js) 的程式碼，點擊 **打勾** 後手動刷新頁面即可 (刷新頁面後即可看到左下角新增的 plugin，如下圖)
 
-> **Tips**: 若沒有特殊需求或條件修改，建議使用 **TopGunPoke.js**，此將會 **自動使用最新版本**！
-
-![TopGunFP.js](http://i.imgur.com/3vdIOyU.png) - 大家找寶貝 :new:
+![TopGunFP.js](http://i.imgur.com/3vdIOyU.png)
 
 ## 如何使用 How to use
 
@@ -93,7 +91,7 @@
  
 ## 問題回報或建議
 
-　非常歡迎與期待各種聲音的出現！如果有任何想表達的，都可以 [在這](https://github.com/GeorgioWan/TopGunPoke.js/issues) 留下你的訊息 :grin:
+　非常歡迎與期待各種聲音的出現！如果有任何想表達的，都可以 [在這](https://github.com/GeorgioWan/TopGunPoke.js/issues/3) 留下你的訊息 :grin:
 
 ## 歷史事件
 
