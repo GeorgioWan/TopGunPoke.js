@@ -119,7 +119,7 @@ $(document).ready(function() {
 */
 var _iv = 0 ;
 function SetMarkers(e, t) {
-    var n, r, i, a = 0, o = "Y", s = "";
+    var r, n, i, a = 0, o = "Y", s = "";
     $.each(t.fp, function(t, c) {
         if (o = "Y",
         markers.length > 0)
@@ -128,122 +128,124 @@ function SetMarkers(e, t) {
                     o = "N";
                     break
                 }
-        if (CheckMySec(c.b) > 1 || (o = "N"),
+        if (CheckMySec(parseInt(c.b) - 1e3 * parseInt(c.a)) > 1 || (o = "N"),
         "Y" == o) {
-            if (n = "",
-            r = 0,
+            if (r = "",
+            n = 0,
             i = right("00" + dec(c.a), 3),
             "^^^^^" != c.f) {
                 var l = c.f.split("^");
                 a = parseInt(l[5]);
                 _iv = parseFloat(l[5]);
-            } else {
-                a = 0;
-                _iv = 0;
+            } else{
+              a = 0;
+              _iv = 0;
             }
             switch (c.e) {
             case "5":
-                80 > a ? (n = "/images/" + i + ".png",
-                r = parseInt("5" + i),
-                s = "65") : (n = "/images/blue_l/" + i + "_l.png",
-                r = parseInt("6" + i),
+                80 > a ? (r = "/images/" + i + ".png",
+                n = parseInt("5" + i),
+                s = "65") : (r = "/images/blue_l/" + i + "_l.png",
+                n = parseInt("6" + i),
                 s = "85");
                 break;
             case "3":
-                "004" == i ? 85 > a ? (n = "/images/mm/" + i + ".png",
-                r = parseInt("3" + i),
-                s = "50") : (n = "/images/blue_m/" + i + "_m.png",
-                r = parseInt("4" + i),
-                s = "65") : 90 > a ? (n = "/images/mm/" + i + ".png",
-                r = parseInt("3" + i),
-                s = "50") : (n = "/images/blue_m/" + i + "_m.png",
-                r = parseInt("4" + i),
+                "004" == i ? 85 > a ? (r = "/images/mm/" + i + ".png",
+                n = parseInt("3" + i),
+                s = "50") : (r = "/images/blue_m/" + i + "_m.png",
+                n = parseInt("4" + i),
+                s = "65") : 90 > a ? (r = "/images/mm/" + i + ".png",
+                n = parseInt("3" + i),
+                s = "50") : (r = "/images/blue_m/" + i + "_m.png",
+                n = parseInt("4" + i),
                 s = "65");
                 break;
             case "1":
-                "001" == i || "007" == i ? 85 > a ? (n = "/images/ss/" + i + ".png",
-                r = parseInt(i),
-                s = "30") : (n = "/images/blue_s/" + i + "_s.png",
-                r = parseInt("2" + i),
-                s = "45") : 95 > a ? (n = "/images/mm/" + i + ".png",
-                r = parseInt(i),
-                s = "30") : (n = "/images/blue_s/" + i + "_s.png",
-                r = parseInt("2" + i),
+                "001" == i || "007" == i ? 85 > a ? (r = "/images/ss/" + i + ".png",
+                n = parseInt(i),
+                s = "30") : (r = "/images/blue_s/" + i + "_s.png",
+                n = parseInt("2" + i),
+                s = "45") : 95 > a ? (r = "/images/mm/" + i + ".png",
+                n = parseInt(i),
+                s = "30") : (r = "/images/blue_s/" + i + "_s.png",
+                n = parseInt("2" + i),
                 s = "45");
                 break;
             default:
-                n = "/images/ss/" + i + ".png",
-                r = parseInt(i),
+                r = "/images/ss/" + i + ".png",
+                n = parseInt(i),
                 s = "30"
             }
             var h = new L.LatLng(c.c,c.d)
               , u = dec(c.a)
-              , g = new L.marker(h,{
-                icon: createIcon(u, n, s),
-                times: c.b
+              , d = new L.marker(h,{
+                icon: createIcon(u, r, s),
+                times: "" + (parseInt(c.b) - 1e3 * parseInt(c.a))
             });
-            g.setZIndexOffset(parseInt(s));
-            var d = L.popup({
+            d.setZIndexOffset(parseInt(s));
+            var g = L.popup({
                 maxWidth: 500,
                 maxHeight: 400
             });
-            g.bindPopup(d),
-            g.on("click", function(t) {
-                var n = 0;
-                if (!isNaN(parseInt(c.b))) {
-                    var r = new Date;
-                    myEndTime = new Date(parseInt(c.b)),
-                    n = r.dateDiff("s", myEndTime),
-                    0 > n && (n = 0,
-                    e.removeLayer(g))
+            d.bindPopup(g),
+            d.on("click", function(t) {
+                var r = 0;
+                if (!isNaN(parseInt(c.b) - 1e3 * parseInt(c.a))) {
+                    var n = new Date;
+                    myEndTime = new Date(parseInt(c.b) - 1e3 * parseInt(c.a)),
+                    r = n.dateDiff("s", myEndTime),
+                    0 > r && (r = 0,
+                    e.removeLayer(d))
                 }
-                if (n > 0) {
+                if (r > 0) {
                     getSecs();
                     var i = t.target.getPopup();
-                    i.setContent(showpopup(c, formatSecond(n))),
+                    i.setContent(showpopup(c, formatSecond(r))),
                     i.update(),
                     this.openPopup(),
                     clicktype = "click"
                 }
             }),
-            g.on("popupclose", function() {
+            d.on("popupclose", function() {
                 clicktype = "",
                 window.clearTimeout(myTimer)
             }),
-            g.on("mouseover", function(t) {
-                var n = 0;
-                if (!isNaN(parseInt(c.b))) {
-                    var r = new Date;
-                    myEndTime = new Date(parseInt(c.b)),
-                    n = r.dateDiff("s", myEndTime),
-                    0 > n && (n = 0,
-                    e.removeLayer(g))
-                }
-                if (n > 0 && "" == clicktype) {
-                    getSecs();
-                    var i = t.target.getPopup();
-                    i.setContent(showpopup(c, formatSecond(n))),
-                    i.update(),
-                    this.openPopup(),
-                    clicktype = "mouseover"
+            d.on("mouseover", function(t) {
+                if ("" == clicktype) {
+                    var r = 0;
+                    if (!isNaN(parseInt(c.b) - 1e3 * parseInt(c.a))) {
+                        var n = new Date;
+                        myEndTime = new Date(parseInt(c.b) - 1e3 * parseInt(c.a)),
+                        r = n.dateDiff("s", myEndTime),
+                        0 > r && (r = 0,
+                        e.removeLayer(d))
+                    }
+                    if (r > 0 && "" == clicktype) {
+                        getSecs();
+                        var i = t.target.getPopup();
+                        i.setContent(showpopup(c, formatSecond(r))),
+                        i.update(),
+                        this.openPopup(),
+                        clicktype = "mouseover"
+                    }
                 }
             }),
-            g.on("mouseout", function() {
+            d.on("mouseout", function() {
                 "mouseover" == clicktype && (this.closePopup(),
                 window.clearTimeout(myTimer),
                 clicktype = "")
             }),
             markers.push({
-                marker: g,
+                marker: d,
                 pokeid: u,
                 lat: c.c,
                 lng: c.d,
-                times: c.b,
+                times: "" + (parseInt(c.b) - 1e3 * parseInt(c.a)),
                 active: !0,
                 iv: _iv
             }),
-            e.addLayer(g),
-            g.setLatLng(h)
+            e.addLayer(d),
+            d.setLatLng(h)
         }
     })
 }
@@ -386,7 +388,7 @@ function SendEmailIfGoodPokemon(a, b) {
       aCurrentNotifPokemon['s']        = parseInt(g.e);
       aCurrentNotifPokemon['lnt']      = parseFloat(g.c); // position for diff pokemon alert or not
       aCurrentNotifPokemon['lng']      = parseFloat(g.d); // position for diff pokemon alert or not
-      aCurrentNotifPokemon['t']        = formatSecond((new Date).dateDiff("s", new Date(parseInt(g.b))));
+      aCurrentNotifPokemon['t']        = formatSecond((new Date).dateDiff("s", new Date(parseInt("" + (parseInt(g.b) - 1e3 * parseInt(g.a))))));
       aCurrentNotifPokemon['iv']       = fIV || '未提供';
       aCurrentNotifPokemon['iv_s']     = _f[0] ? (fIV + "% (" + parseInt(_f[0]) + "/" + parseInt(_f[1]) + "/" + parseInt(_f[2]) + ")") : '未提供';
 
