@@ -273,7 +273,7 @@ function gda() {
               , a = ed.Encrypt("" + lng1 + "^" + tf);
             i = encodeURIComponent(i),
             a = encodeURIComponent(a);
-            var o = "fp.ashx?a=" + lat0 + "&b=" + lng0 + "&c=" + lat1 + "&d=" + lng1 + "&e=" + LimitItem + "&f=" + i + "&g=" + a + "&h=" + h + "&j=456";
+            var o = "fp.ashx?a=" + lat0 + "&b=" + lng0 + "&c=" + lat1 + "&d=" + lng1 + "&e=" + LimitItem + "&f=" + i + "&g=" + a + "&h=" + h + "&j=765";
             $.ajax({
                 url: o,
                 async: !0,
