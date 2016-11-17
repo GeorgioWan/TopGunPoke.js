@@ -1,24 +1,10 @@
-> # 11/07 更新消息
+> # 目前狀態 (2016/11/17)
 
-> 隨著 [**大家找寶貝**](https://pkget.com/) 的復活，**TopGunPoke** 又可以一起開心追寶啦！
+> 運行狀況：良好 :heavy_check_mark:
 
-> 這次還更新了新功能喔！快來一起追逐 **超稀有**、**超高IV** 的寶可夢吧 :tada::tada::tada:
+> 目前版本：**v1.2.5**
 
-> ## 11/01 ~~目前狀態~~
-
-> 目前此 pugin 因支援的雷達陣亡，故一起GG惹，這邊就推薦一下目前好用雷達：
-  
-> **網頁**請用 [FastPokeMap](https://fastpokemap.se/beta/)，**手機** 請用 [PokeWhere](http://pokewhere.co/?utm_source=fb&utm_medium=apost-tw)
-
-> ## 10/28 更新消息
-
-> 距離雷達失效已近一個月，目前低調使用 [findpkm](https://findpkm.com/)，而本 plugin 目前也只針對 **稀有度為5** 的寶可夢作通知。
-
-> ## 10/08 重大消息
-
-> 由於昨夜凌晨官方 **全方面封鎖** 雷達地圖，以致各大地圖目前皆已失效
-
-> 所以此 plugin 也跟著唇寒齒亡，待地圖修復，方會立即更新並支援！
+> 釋出日期：**2016/11/15**
 
 ---
 
@@ -30,7 +16,7 @@
 
 一強還有一強強，一屌還有一屌屌！
 
-一起點開 Chrome 坐等 **高素質** 寶可夢吧！ *... 終於可以專心做事了*:laughing::laughing:
+一起點開 Chrome/Firefox 坐等 **高素質** 寶可夢吧！ *... 終於可以專心做事了*:laughing::laughing:
 
 ## 安裝步驟 Install
 
@@ -39,7 +25,7 @@
 1. 開 Chrome 安裝 [**cjs**](https://chrome.google.com/webstore/detail/custom-javascript-for-web/poakhlngfciodnhlhhgnaaelnpjljija)
 2. 打開 [大家找寶貝](https://pkget.com/)
 3. 點擊 chrome 右上角 **cjs** 圖示，將 **enable cjs for this host** 打勾
-4. 貼上 [**TopGunPoke.js**](https://github.com/GeorgioWan/TopGunPoke.js/blob/master/TopGunPoke.js) 的程式碼，或依需求貼上 [**TopGunFP.js** (for 大家找寶貝)](https://github.com/GeorgioWan/TopGunPoke.js/blob/master/src/TopGunFP.js) 的程式碼，點擊 Save 後會刷新頁面 (刷新頁面後即可看到左下角新增的 plugin，如下圖)
+4. 貼上 [**TopGunPoke.js**](https://github.com/GeorgioWan/TopGunPoke.js/blob/master/TopGunPoke.js) 的程式碼，點擊 Save 後會刷新頁面 (刷新頁面後即可看到左下角新增的 plugin，如下圖)
 
 ### Firefox 愛用者
 
@@ -47,11 +33,9 @@
 2. 打開 [大家找寶貝](https://pkget.com/)
 3. 點擊 firefox 右上角藍色 **js** 圖示
 4. 新增一筆資料，於 URL filter 填入 **https://pkget.com**
-5. 於 Javascript code 貼上 [**TopGunPoke.js**](https://github.com/GeorgioWan/TopGunPoke.js/blob/master/TopGunPoke.js) 的程式碼，或依需求貼上 [**TopGunFP.js** (for 大家找寶貝)](https://github.com/GeorgioWan/TopGunPoke.js/blob/master/src/TopGunFP.js) 的程式碼，點擊 **打勾** 後手動刷新頁面即可 (刷新頁面後即可看到左下角新增的 plugin，如下圖)
+5. 於 Javascript code 貼上 [**TopGunPoke.js**](https://github.com/GeorgioWan/TopGunPoke.js/blob/master/TopGunPoke.js) 的程式碼，點擊 **打勾** 後手動刷新頁面即可 (刷新頁面後即可看到左下角新增的 plugin，如下圖)
 
-> **Tips**: 若沒有特殊需求或條件修改，建議使用 **TopGunPoke.js**，此將會 **自動使用最新版本**！
-
-![TopGunFP.js](http://i.imgur.com/3vdIOyU.png) - 大家找寶貝 :new:
+![TopGunFP.js](http://i.imgur.com/3vdIOyU.png)
 
 ## 如何使用 How to use
 
@@ -107,7 +91,31 @@
  
 ## 問題回報或建議
 
-　非常歡迎與期待各種聲音的出現！如果有任何想表達的，都可以 [在這](https://github.com/GeorgioWan/TopGunPoke.js/issues) 留下你的訊息 :grin:
+　非常歡迎與期待各種聲音的出現！如果有任何想表達的，都可以 [在這](https://github.com/GeorgioWan/TopGunPoke.js/issues/3) 留下你的訊息 :grin:
+
+## 歷史事件
+
+> ## 11/07 更新消息
+
+> 隨著 [**大家找寶貝**](https://pkget.com/) 的復活，**TopGunPoke** 又可以一起開心追寶啦！
+
+> 這次還更新了新功能喔！快來一起追逐 **超稀有**、**超高IV** 的寶可夢吧 :tada::tada::tada:
+
+> ## 11/01 ~~目前狀態~~
+
+> 目前此 pugin 因支援的雷達陣亡，故一起GG惹，這邊就推薦一下目前好用雷達：
+  
+> **網頁**請用 [FastPokeMap](https://fastpokemap.se/beta/)，**手機** 請用 [PokeWhere](http://pokewhere.co/?utm_source=fb&utm_medium=apost-tw)
+
+> ## 10/28 更新消息
+
+> 距離雷達失效已近一個月，目前低調使用 [findpkm](https://findpkm.com/)，而本 plugin 目前也只針對 **稀有度為5** 的寶可夢作通知。
+
+> ## 10/08 重大消息
+
+> 由於昨夜凌晨官方 **全方面封鎖** 雷達地圖，以致各大地圖目前皆已失效
+
+> 所以此 plugin 也跟著唇寒齒亡，待地圖修復，方會立即更新並支援！
 
 ## License
 
