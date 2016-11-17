@@ -16,7 +16,7 @@
 
 一強還有一強強，一屌還有一屌屌！
 
-一起點開 Chrome 坐等 **高素質** 寶可夢吧！ *... 終於可以專心做事了*:laughing::laughing:
+一起點開 Chrome/Firefox 坐等 **高素質** 寶可夢吧！ *... 終於可以專心做事了*:laughing::laughing:
 
 ## 安裝步驟 Install
 
