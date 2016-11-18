@@ -435,8 +435,8 @@ function timeDifference(previous) {
 }
 
 function isSelectedPokemon(id){
-  let selectedPoke = $.cookie('tgp_selectedPoke').split(",");
-	
+  let selectedPoke = $.cookie('tgp_selectedPoke') ? $.cookie('tgp_selectedPoke').split(",") : '' ;
+
 	if(selectedPoke.length !== 0)
 	  for(let i = 0 ; i < selectedPoke.length ; i++)
 	  	if(parseInt(selectedPoke[i]) === id)
