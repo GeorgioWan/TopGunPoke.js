@@ -8,11 +8,9 @@ function TopGunPokeGO(){
 
 	if (hostName === 'pkget')
 		sourceURL = "https://rawgit.com/GeorgioWan/TopGunPoke.js/master/src/TopGunFP.js";
-	else if (hostName === 'poke5566')
-		sourceURL = "https://rawgit.com/GeorgioWan/TopGunPoke.js/master/src/TopGun56.js";
 	else
 	{
-		alert('Sorry, TopGunPoke only for pkget, poke5566 & findpkm now :)');
+		alert('Sorry, TopGunPoke only for pkget now :)');
 		return true;
 	}
 

@@ -1,21 +1,100 @@
 /*
   DOM
 */
-var ig, sp, el,
-    ctl = document.createElement('span'),
+var dv, ig, sp, el,
+    ctl = document.createElement('div'),
     _body = document.getElementsByTagName('body')[0],
     _head = document.getElementsByTagName('head')[0];
 
-var g_ver  = '1.2.6',
-    g_date = '2016.11.17';
+var g_ver  = 'v1.3.0';
 
 el = document.createElement('div');
-el.className = 'alert alert-info';
+el.id = 'tgp_log_toggle'
+el.className = 'btn btn-warning';
+el.style.position = "absolute";
+el.style.zIndex = '500';
 el.style.position = 'absolute';
-el.style.bottom = '30px';
+el.style.right = '0px';
+el.style.margin = '110px 20px';
+el.style.padding = '9px 14px';
+el.setAttribute('data-toggle', 'collapse');
+el.setAttribute('data-target', '#tgp_log');
+el.setAttribute('aria-expanded', 'false');
+el.setAttribute('aria-controls', 'tgp_log');
+sp = document.createElement('span');
+sp.className = 'glyphicon glyphicon-screenshot';
+el.appendChild(sp);
+
+dv = document.createElement('div');
+dv.id = 'tgp_log';
+dv.className = 'panel panel-default collapse';
+dv.style.zIndex = '500';
+dv.style.position = 'absolute';
+dv.style.right = '0px';
+dv.style.margin = '160px 20px';
+dv.style.backgroundColor = 'rgba(0,0,0,.5)';
+
+ig = document.createElement('div');
+ig.className = 'panel-heading';
+ig.style.textAlign = 'center';
+ig.style.backgroundColor = 'rgba(240,173,78,.8)';
+ig.style.color = 'whitesmoke';
+ig.innerHTML = '追蹤紀錄(beta)';
+dv.appendChild(ig);
+
+ig = document.createElement('ul');
+ig.id = 'tgp_log_list';
+ig.className = 'list-group';
+ig.style.maxHeight = '270px';
+ig.style.overflowY = 'auto';
+dv.appendChild(ig);
+
+$('#filter').after(el);
+$('#tgp_log_toggle').after(dv);
+
+el = document.createElement('div');
 el.style.width = '200px';
-el.innerHTML = '<b>TopGunPoke GO</b><br/> <span class="label label-danger">v' + g_ver + '</span> <span class="label label-primary">' + g_date + '</span>';
+el.style.marginBottom = '6px';
+el.style.paddingBottom = '3px';
+el.style.borderBottom = '1px solid rgba(0,0,0,.3)';
+el.innerHTML = `<b style="vertical-align: middle; text-shadow: .5px .5px 4px rgba(0,0,0,.3);">
+                  <a href="https://github.com/GeorgioWan/TopGunPoke.js" target="_blank" style="text-decoration: none; color: gray;">TopGunPoke</a>
+                </b> 
+                <span class="label label-primary">` + g_ver + '</span>';
 ctl.appendChild(el);
+
+dv = document.createElement('div');
+dv.style.display = 'inline-flex';
+
+ig = document.createElement('span');
+ig.className = 'input-group input-group-sm';
+ig.style.width = '126px';
+sp = document.createElement('span');
+sp.id = 'addon-iv';
+sp.className = 'input-group-addon';
+sp.innerHTML = 'IV';
+el = document.createElement('input');
+el.className = 'form-control';
+el.id = 'input-iv';
+el.style.textAlign = 'center';
+el.placeholder = 'IV';
+el.value = $.cookie("tgp_iv") || '90';
+el.setAttribute("aria-describedby", "addon-iv");
+ig.appendChild(sp);
+ig.appendChild(el);
+
+el = document.createElement('button');
+el.className = 'btn btn-sm btn-warning';
+el.id = 'get-custom';
+el.style.width = '70px';
+el.style.marginLeft = '4px';
+sp = document.createElement('span');
+sp.className = 'glyphicon glyphicon-play';
+el.appendChild(sp);
+
+dv.appendChild(ig);
+dv.appendChild(el);
+ctl.appendChild(dv);
 
 /** Bootstrap-select **/
 ig = document.createElement('link');
@@ -26,13 +105,11 @@ ig = document.createElement('script');
 ig.src = "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/js/bootstrap-select.min.js";
 _head.appendChild(ig);
 
-sp = document.createElement('span');
-sp.style.position = 'absolute';
-sp.style.bottom = '5px';
+sp = document.createElement('div');
 
 ig = document.createElement('select');
 ig.className = 'selectpicker';
-ig.title = '追蹤哪些 Pokemon...'
+ig.title = '無視 IV 追蹤 Pokemon...'
 ig.setAttribute('data-size', '10');
 ig.setAttribute('multiple', 'true');
 ig.setAttribute('data-width', '200px');
@@ -48,6 +125,10 @@ poke.poke.forEach((p, index) => {
                     '<img src="/images/mm/' + right("00" + p.id, 3) + '.png" style="width: 30px; height: 30px;">' + 
                     '<span style="display: inline-block; width: 60px;text-align: center;">' + p.zhtw + '</span>' + 
                     '<span class="label label-default">' + p.name + '</span>');
+
+    if ( isSelectedPokemon(parseInt(el.value)) )
+      el.setAttribute('selected', true);
+
     ig.appendChild(el);
   }
 });
@@ -56,41 +137,12 @@ sp.appendChild(ig);
 ctl.appendChild(sp);
 /*********************/
 
-ig = document.createElement('div');
-ig.className = 'input-group input-group-sm';
-ig.style.position = 'absolute';
-ig.style.width = '120px';
-sp = document.createElement('span');
-sp.id = 'addon-iv';
-sp.className = 'input-group-addon';
-sp.innerHTML = 'IV';
-el = document.createElement('input');
-el.className = 'form-control';
-el.id = 'input-iv';
-el.style.textAlign = 'center';
-el.placeholder = 'IV';
-el.value = '90';
-el.setAttribute("aria-describedby", "addon-iv");
-ig.appendChild(sp);
-ig.appendChild(el);
-ctl.appendChild(ig);
-
-el = document.createElement('button');
-el.className = 'btn btn-sm btn-warning';
-el.id = 'get-custom';
-el.style.position = 'absolute';
-el.style.left = '143px';
-el.style.width = '70px';
-sp = document.createElement('span');
-sp.className = 'glyphicon glyphicon-play';
-el.appendChild(sp);
-ctl.appendChild(el);
-
-ctl.className = 'col-md-2';
 ctl.style.zIndex = 9999;
 ctl.style.position = 'fixed';
-ctl.style.left = '5px';
-ctl.style.bottom = '45px';
+ctl.style.left = '20px';
+ctl.style.bottom = '20px';
+ctl.style.textAlign = 'center';
+
 _body.appendChild(ctl);
 /*
   GLOBAL VAR
@@ -107,11 +159,33 @@ $(document).ready(function() {
     gRun = !gRun;
 
     if (gRun){
-      gInterval = setInterval(gda, 5000);
       gda();
+      gInterval = setInterval(gda, 5000);
     }
     else
       clearInterval(gInterval);
+  });
+
+  $("#input-iv").on("change", function(e){
+    gda();
+    $.cookie("tgp_iv", e.target.value, {
+        path: "/",
+        expires: 90
+    });
+  });
+
+  $('.selectpicker').on("change", function(e){
+    let selectedPokeArr = new Array(), 
+        selectedPoke = e.target.selectedOptions;
+  
+    if(selectedPoke.length !== 0)
+      for(let i = 0 ; i < selectedPoke.length ; i++)
+        selectedPokeArr.push(selectedPoke[i].value);
+        
+    $.cookie("tgp_selectedPoke", selectedPokeArr, {
+        path: "/",
+        expires: 90
+    });
   });
 });
 /*
@@ -361,11 +435,11 @@ function timeDifference(previous) {
 }
 
 function isSelectedPokemon(id){
-	let selectedPoke = $('.selectpicker').find("option:selected");
+  let selectedPoke = $.cookie('tgp_selectedPoke').split(",");
 	
 	if(selectedPoke.length !== 0)
 	  for(let i = 0 ; i < selectedPoke.length ; i++)
-	  	if(parseInt(selectedPoke[i].value) === id)
+	  	if(parseInt(selectedPoke[i]) === id)
 	  		return true;
 
   return false;
@@ -426,6 +500,23 @@ function isSended(g) {
   return isSended;
 }
 
+function pokemonHistoryLog(pm){
+  const dt = new Date();
+  const label_style = "display: inline-block; margin: 0 3px; font-size: x-small;";
+  ig = document.createElement('li');
+  ig.className = 'list-group-item';
+  ig.style.backgroundColor = 'transparent';
+  ig.style.color = 'whitesmoke';
+  
+  ig.innerHTML = '<span class="label" style="' + label_style + ' background-color: rgba(0,0,0,.5)">' + dt.toLocaleDateString() + ' ' + dt.toLocaleTimeString() + '</span>' + 
+                 '<img src="https://pkget.com/images/mm/' + right("00" + pm.index, 3) + '.png" style="width: 30px; height: 30px"></img>' +
+                 '<span class="label label-danger" style="' + label_style + ' min-width: 122px;">' + pm.iv_s + '</span>' +
+                 '<span class="label label-primary" style="' + label_style + '">' + pm.m1 + '</span>' +
+                 '<span class="label label-primary" style="' + label_style + '">' + pm.m2 + '</span>';
+
+  $("#tgp_log_list").append(ig);
+}
+
 function doSendNotif(arrCurrentNotifPokemon){
   if (Notification.permission !== "granted")
     Notification.requestPermission();
@@ -449,11 +540,7 @@ function doSendNotif(arrCurrentNotifPokemon){
         }, 20000);
 
         // History log
-        const dt = new Date();
-        console.info(
-          '[' + dt.toLocaleDateString() + ' ' + dt.toLocaleTimeString() + '] ' +
-          pm.name + 'IV: ' + pm.iv_s + ' ' + pm.m1 + ', ' + pm.m2
-        );
+        pokemonHistoryLog(pm);
       }
     });
       
