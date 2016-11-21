@@ -166,6 +166,16 @@ $(document).ready(function() {
       clearInterval(gInterval);
   });
 
+  $(".list-group").on("click", "img", (e)=>{
+  	var _m = new L.marker([$(e.target).data('lnt'), $(e.target).data('lng')],{
+      icon: createIcon(0, e.target.src, 30),
+      opacity: 0.7
+    });
+    map.addLayer(_m);
+
+    setTimeout(()=>{map.removeLayer(_m);}, 5000);
+  });
+
   $("#input-iv").on("change", function(e){
     gda();
     $.cookie("tgp_iv", e.target.value, {
@@ -509,7 +519,7 @@ function pokemonHistoryLog(pm){
   ig.style.color = 'whitesmoke';
   
   ig.innerHTML = '<span class="label" style="' + label_style + ' background-color: rgba(0,0,0,.5)">' + dt.toLocaleDateString() + ' ' + dt.toLocaleTimeString() + '</span>' + 
-                 '<img src="https://pkget.com/images/mm/' + right("00" + pm.index, 3) + '.png" style="width: 30px; height: 30px"></img>' +
+                 '<img src="https://pkget.com/images/mm/' + right("00" + pm.index, 3) + '.png" data-lnt="' + pm.lnt + '" data-lng="' + pm.lng + '" style="width: 30px; height: 30px; cursor: pointer;"></img>' +
                  '<span class="label label-danger" style="' + label_style + ' min-width: 122px;">' + pm.iv_s + '</span>' +
                  '<span class="label label-primary" style="' + label_style + '">' + pm.m1 + '</span>' +
                  '<span class="label label-primary" style="' + label_style + '">' + pm.m2 + '</span>';
