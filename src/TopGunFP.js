@@ -6,7 +6,7 @@ var dv, ig, sp, el,
     _body = document.getElementsByTagName('body')[0],
     _head = document.getElementsByTagName('head')[0];
 
-var g_ver  = 'v1.3.0';
+var g_ver  = 'v1.3.1';
 
 el = document.createElement('div');
 el.id = 'tgp_log_toggle'
