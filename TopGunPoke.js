@@ -7,7 +7,7 @@ function TopGunPokeGO(){
 	let sourceURL ;
 
 	if (hostName === 'pkget')
-		sourceURL = "https://rawgit.com/GeorgioWan/TopGunPoke.js/master/src/TopGunFP.js";
+		sourceURL = "https://cdn.jsdelivr.net/gh/GeorgioWan/TopGunPoke.js@master/src/TopGunFP.js";
 	else
 	{
 		alert('Sorry, TopGunPoke only for pkget now :)');
